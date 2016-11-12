@@ -54,8 +54,8 @@ def run_backup(self, srcdir, dstdir):
         if file_updated_within_24_hours(os.path.join(srcdir,filename)):
             print(os.path.join(dirPrefix + srcdir, filename))
             try:
-                shutil.copyfile(os.path.join(dirPrefix + srcdir, filename),
-                                os.path.join(dirPrefix + dstdir, filename))
+                shutil.copy2(os.path.join(dirPrefix + srcdir, filename),
+                             os.path.join(dirPrefix + dstdir, filename))
                 files_copied += 1
             # eg. src and dest are the same file
             except shutil.Error as e:
